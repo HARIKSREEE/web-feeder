@@ -1,0 +1,40 @@
+@mixin makeImportant($content) {
+    @each $property, $value in $content {
+        #{$property}: #{$value} !important;
+    }
+}
+
+
+.resize-handle {
+    $resize-handle-width: 10px;
+    $resize-handle-height: 10px;
+    $resize-handle-offset: -5px;
+    @include makeImportant((background-color: rgba(6, 6, 6, 0.7),
+            width: $resize-handle-width,
+            height: $resize-handle-height,
+        ));
+
+    &__left-bottom {
+        @include makeImportant((left: $resize-handle-offset,
+                bottom: $resize-handle-offset,
+            ));
+    }
+
+    &__right-bottom {
+        @include makeImportant((right: $resize-handle-offset,
+                bottom: $resize-handle-offset,
+            ));
+    }
+
+    &__left-top {
+        @include makeImportant((left: $resize-handle-offset,
+                top: $resize-handle-offset,
+            ));
+    }
+
+    &__right-top {
+        @include makeImportant((right: $resize-handle-offset,
+                top: $resize-handle-offset,
+            ));
+    }
+}
